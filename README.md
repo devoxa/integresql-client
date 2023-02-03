@@ -48,7 +48,8 @@
 yarn add @devoxa/integresql-client
 ```
 
-**To install IntegreSQL, please follow their [installation instructions](https://github.com/allaboutapps/integresql#usage).**
+**To install IntegreSQL, please follow their
+[installation instructions](https://github.com/allaboutapps/integresql#usage).**
 
 ## Usage
 
