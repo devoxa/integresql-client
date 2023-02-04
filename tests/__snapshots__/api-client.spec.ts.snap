@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`api-client endpoints can discard a template 1`] = `
+[
+  [
+    "http:/localhost:5000/api/v1/templates/mock-hash",
+    {
+      "body": undefined,
+      "headers": {
+        "Content-Type": "application/json",
+      },
+      "method": "DELETE",
+    },
+  ],
+]
+`;
+
+exports[`api-client endpoints can discard all templates 1`] = `
+[
+  [
+    "http:/localhost:5000/api/v1/admin/templates",
+    {
+      "body": undefined,
+      "headers": {
+        "Content-Type": "application/json",
+      },
+      "method": "DELETE",
+    },
+  ],
+]
+`;
+
+exports[`api-client endpoints can finalize a template 1`] = `
+[
+  [
+    "http:/localhost:5000/api/v1/templates/mock-hash",
+    {
+      "body": undefined,
+      "headers": {
+        "Content-Type": "application/json",
+      },
+      "method": "PUT",
+    },
+  ],
+]
+`;
+
+exports[`api-client endpoints can get a test database 1`] = `
+[
+  [
+    "http:/localhost:5000/api/v1/templates/mock-hash/tests",
+    {
+      "body": undefined,
+      "headers": {
+        "Content-Type": "application/json",
+      },
+      "method": "GET",
+    },
+  ],
+]
+`;
+
+exports[`api-client endpoints can initialize a template 1`] = `
+[
+  [
+    "http:/localhost:5000/api/v1/templates",
+    {
+      "body": "{"hash":"mock-hash"}",
+      "headers": {
+        "Content-Type": "application/json",
+      },
+      "method": "POST",
+    },
+  ],
+]
+`;
+
+exports[`api-client endpoints can reuse a test database 1`] = `
+[
+  [
+    "http:/localhost:5000/api/v1/templates/mock-hash/42",
+    {
+      "body": undefined,
+      "headers": {
+        "Content-Type": "application/json",
+      },
+      "method": "DELETE",
+    },
+  ],
+]
+`;
+
+exports[`api-client errors when the HTTP response status indicates an issue 1`] = `"API request to IntegreSQL failed: {"message":"template is already initialized"} (Status 423)"`;

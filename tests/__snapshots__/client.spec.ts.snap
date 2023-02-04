@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`client can call the hash files helper 1`] = `
+[
+  [
+    [
+      "./prisma/schema.prisma",
+      "./src/__fixtures__/**/*",
+    ],
+  ],
+]
+`;
+
+exports[`client can convert the database config into a connection url 1`] = `"postgresql://user:pass@localhost:5432/mock_database_0"`;
+
+exports[`client can discard a template when the setup callback fails 1`] = `
+[
+  [
+    {
+      "database": "mock_template_1",
+      "host": "localhost",
+      "password": "pass",
+      "port": 5432,
+      "username": "user",
+    },
+  ],
+]
+`;
+
+exports[`client can get a test database 1`] = `
+{
+  "database": "mock_database_2",
+  "host": "localhost",
+  "password": "pass",
+  "port": 5432,
+  "username": "user",
+}
+`;
+
+exports[`client can initialize a template 1`] = `
+[
+  [
+    {
+      "database": "mock_template_1",
+      "host": "localhost",
+      "password": "pass",
+      "port": 5432,
+      "username": "user",
+    },
+  ],
+]
+`;
+
+exports[`client can rethrow error when initializing a template 1`] = `"API request to IntegreSQL failed: {"message":"connect: connection refused"} (Status 500)"`;
