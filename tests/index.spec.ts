@@ -5,6 +5,9 @@ const expectTypeExport = <T>() => 'noop'
 
 describe('index', () => {
   it('has the correct exports', () => {
+    expect(typeof index.IntegreSQLClient).toEqual('function')
+    expectTypeExport<index.IntegreSQLClientOptions>()
+
     expect(typeof index.IntegreSQLApiClient).toEqual('function')
     expectTypeExport<index.IntegreSQLApiClientOptions>()
 

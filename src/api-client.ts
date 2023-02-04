@@ -31,11 +31,7 @@ export class IntegreSQLApiClient {
     const text = await response.text()
 
     if (response.status >= 400) {
-      throw createIntegreSQLApiClientError({
-        message: `API request to IntegreSQL failed: ${text} (Status ${response.status})`,
-        responseStatus: response.status,
-        responseText: text,
-      })
+      throw createIntegreSQLApiClientError({ responseStatus: response.status, responseText: text })
     }
 
     return text ? JSON.parse(text) : null

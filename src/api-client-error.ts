@@ -4,13 +4,14 @@ export class IntegreSQLApiClientError extends Error {
 }
 
 export interface CreateIntegreSQLApiClientErrorOptions {
-  message: string
   responseStatus: number
   responseText: string
 }
 
 export function createIntegreSQLApiClientError(options: CreateIntegreSQLApiClientErrorOptions) {
-  const error = new IntegreSQLApiClientError(options.message)
+  const message = `API request to IntegreSQL failed: ${options.responseText} (Status ${options.responseStatus})`
+
+  const error = new IntegreSQLApiClientError(message)
   error.responseStatus = options.responseStatus
   error.responseText = options.responseText
   return error
