@@ -948,7 +948,7 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@prisma/client@^4.9.0":
+"@prisma/client@4.9.0":
   version "4.9.0"
   resolved "https://registry.yarnpkg.com/@prisma/client/-/client-4.9.0.tgz#4a4068f3540732ea5723c008d49ed684d20f9340"
   integrity sha512-bz6QARw54sWcbyR1lLnF2QHvRW5R/Jxnbbmwh3u+969vUKXtBkXgSgjDA85nji31ZBlf7+FrHDy5x+5ydGyQDg==
@@ -3510,7 +3510,7 @@ pretty-format@^29.4.1:
     ansi-styles "^5.0.0"
     react-is "^18.0.0"
 
-prisma@^4.9.0:
+prisma@4.9.0:
   version "4.9.0"
   resolved "https://registry.yarnpkg.com/prisma/-/prisma-4.9.0.tgz#295954b2a89cd35a0e6bcf66b2b036dbf80c75ee"
   integrity sha512-bS96oZ5oDFXYgoF2l7PJ3Mp1wWWfLOo8B/jAfbA2Pn0Wm5Z/owBHzaMQKS3i1CzVBDWWPVnOohmbJmjvkcHS5w==
