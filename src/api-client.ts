@@ -1,5 +1,6 @@
 import fetch from 'node-fetch'
 import path from 'path'
+import { createIntegreSQLApiClientError } from './api-client-error'
 import { GetTestDatabaseResponse, InitializeTemplateResponse } from './interfaces'
 
 export interface IntegreSQLApiClientOptions {
@@ -30,7 +31,7 @@ export class IntegreSQLApiClient {
     const text = await response.text()
 
     if (response.status >= 400) {
-      throw new IntegreSQLApiClientError({
+      throw createIntegreSQLApiClientError({
         message: `API request to IntegreSQL failed: ${text} (Status ${response.status})`,
         responseStatus: response.status,
         responseText: text,
@@ -62,22 +63,5 @@ export class IntegreSQLApiClient {
 
   async reuseTestDatabase(hash: string, id: number) {
     return this.request<null>('DELETE', `/templates/${hash}/${id}`)
-  }
-}
-
-export interface IntegreSQLApiClientErrorOptions {
-  message: string
-  responseStatus: number
-  responseText: string
-}
-
-export class IntegreSQLApiClientError extends Error {
-  responseStatus: number
-  responseText: string
-
-  constructor(options: IntegreSQLApiClientErrorOptions) {
-    super(options.message)
-    this.responseStatus = options.responseStatus
-    this.responseText = options.responseText
   }
 }

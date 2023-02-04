@@ -1,5 +1,6 @@
 import fetch from 'node-fetch'
-import { IntegreSQLApiClient, IntegreSQLApiClientError } from '../src/api-client'
+import { IntegreSQLApiClient } from '../src/api-client'
+import { IntegreSQLApiClientError } from '../src/api-client-error'
 import {
   GetTestDatabaseResponse,
   InitializeTemplateResponse,
@@ -19,9 +20,15 @@ function getMockFetchImplementation(status: number, response: string) {
   return mockFetchImplementation as any
 }
 
-const client = new IntegreSQLApiClient({
-  url: 'http://localhost:5000',
-})
+const client = new IntegreSQLApiClient({ url: 'http://localhost:5000' })
+
+const mockDatabaseConfig: IntegreSQLDatabaseConfig = {
+  username: 'user',
+  password: 'pass',
+  host: 'localhost',
+  port: 5432,
+  database: 'mock_database_0',
+}
 
 describe('api-client', () => {
   beforeEach(() => {
@@ -54,14 +61,6 @@ describe('api-client', () => {
   })
 
   describe('endpoints', () => {
-    const mockDatabaseConfig: IntegreSQLDatabaseConfig = {
-      username: 'user',
-      password: 'pass',
-      host: 'localhost',
-      port: 5432,
-      database: 'mock_database_0',
-    }
-
     it('can initialize a template', async () => {
       const mockResponse: InitializeTemplateResponse = {
         database: { templateHash: 'mock-hash', config: mockDatabaseConfig },

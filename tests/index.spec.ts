@@ -9,7 +9,7 @@ describe('index', () => {
     expectTypeExport<index.IntegreSQLApiClientOptions>()
 
     expect(typeof index.IntegreSQLApiClientError).toEqual('function')
-    expectTypeExport<index.IntegreSQLApiClientErrorOptions>()
+    expectTypeExport<index.CreateIntegreSQLApiClientErrorOptions>()
 
     expectTypeExport<index.IntegreSQLDatabaseConfig>()
   })
