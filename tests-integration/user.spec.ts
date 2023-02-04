@@ -23,7 +23,7 @@ describe('user', () => {
 
       console.log('Migrating template database')
       const prismaBin = path.join(process.cwd(), './node_modules/.bin/prisma')
-      const env = { DATABASE_POSTGRES_URL: connectionUrl }
+      const env = { DATABASE_POSTGRES_URL: connectionUrl, PATH: process.env.PATH }
       execSync(`${prismaBin} db push --force-reset --skip-generate`, { env })
 
       console.log('Seeding template database')
