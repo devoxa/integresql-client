@@ -45,7 +45,7 @@
 ## Installation
 
 ```bash
-yarn add @devoxa/integresql-client
+yarn add --dev @devoxa/integresql-client
 ```
 
 **To install IntegreSQL, please follow their
