@@ -53,7 +53,62 @@ yarn add @devoxa/integresql-client
 
 ## Usage
 
-TODO
+### Full example
+
+**For a full usage example, have a look the [integration tests](./tests-integration/user.spec.ts).**
+
+### Step-by-step guide
+
+1. **Initialize the IntegreSQL client**
+
+```ts
+import { IntegreSQLClient } from '@devoxa/integresql-client'
+
+const integreSQL = new IntegreSQLClient({ url: 'http://localhost:5000' })
+// options.url: The URL of the IntegreSQL instance
+```
+
+2. **(Once per test runner process) Get a hash of the migrations & fixtures**
+
+```ts
+// The hash can be generated in any way that fits your business logic, the included
+// helper creates a SHA1 hash of the file content of all files matching the glob patterns.
+const hash = await integreSQL.hashFiles(['./migrations/**/*', './fixtures/**/*'])
+```
+
+3. **(Once per test runner process) Initialize the template database**
+
+```ts
+await integreSQL.initializeTemplate(hash, async (databaseConfig) => {
+  await migrateTemplateDatabase(databaseConfig)
+  await seedTemplateDatabase(databaseConfig)
+  await disconnectFromDatabase(databaseConfig)
+})
+```
+
+4. **(Before each test) Get a isolated test database**
+
+```ts
+const databaseConfig = await integreSQL.getTestDatabase(hash)
+```
+
+### Helpers
+
+- `integreSQL.databaseConfigToConnectionUrl(databaseConfig)`
+  - Converts the database configuration object into a
+    [connection URL](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNSTRING)
+
+### API requests
+
+You can directly send requests to the IntegreSQL instance via the included API client, or optionally
+instantiate a new [`IntegreSQLApiClient`](./src/api-client.ts) yourself.
+
+```ts
+await integreSQL.api.reuseTestDatabase(hash, id)
+
+const api = new IntegreSQLApiClient({ url: 'http://localhost:5000' })
+await api.reuseTestDatabase(hash, id)
+```
 
 ## Contributors
 
