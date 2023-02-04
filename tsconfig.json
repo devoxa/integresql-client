@@ -29,5 +29,5 @@
     "resolveJsonModule": true,
     "allowJs": false
   },
-  "include": ["src/", "tests/"]
+  "include": ["src/", "tests/", "tests-integration/"]
 }
