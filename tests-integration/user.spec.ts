@@ -9,6 +9,15 @@ const integreSQL = new IntegreSQLClient({ url: 'http://localhost:5000' })
 let hash: string
 let prisma: PrismaClient
 
+const originalConsoleWarn = console.warn
+console.warn = (...args) => {
+  const prismaWarning =
+    'warn(prisma-client) There are already 10 instances of Prisma Client actively running.'
+
+  if (args[0] === prismaWarning) return
+  return originalConsoleWarn(...args)
+}
+
 describe('user', () => {
   beforeAll(async () => {
     // Get a hash of the migrations & fixtures
@@ -42,34 +51,41 @@ describe('user', () => {
     prisma = new PrismaClient({ datasources: { database: { url: connectionUrl } } })
   })
 
-  it('can create a user', async () => {
-    const beforeUsers = await prisma.user.findMany({ orderBy: { name: 'asc' } })
-    expect(beforeUsers.map((x) => x.name)).toEqual(['foo'])
-
-    await prisma.user.create({ data: { name: 'bar' } })
-
-    const afterUsers = await prisma.user.findMany({ orderBy: { name: 'asc' } })
-    expect(afterUsers.map((x) => x.name)).toEqual(['bar', 'foo'])
+  afterEach(async () => {
+    await prisma.$disconnect()
   })
 
-  it('can delete a user', async () => {
-    const beforeUsers = await prisma.user.findMany({ orderBy: { name: 'asc' } })
-    expect(beforeUsers.map((x) => x.name)).toEqual(['foo'])
+  // Duplicate tests to check for connection exhaustion
+  for (let i = 0; i !== 5; i++) {
+    it('can create a user', async () => {
+      const beforeUsers = await prisma.user.findMany({ orderBy: { name: 'asc' } })
+      expect(beforeUsers.map((x) => x.name)).toEqual(['foo'])
 
-    await prisma.user.deleteMany()
+      await prisma.user.create({ data: { name: 'bar' } })
 
-    const afterUsers = await prisma.user.findMany({ orderBy: { name: 'asc' } })
-    expect(afterUsers.map((x) => x.name)).toEqual([])
-  })
+      const afterUsers = await prisma.user.findMany({ orderBy: { name: 'asc' } })
+      expect(afterUsers.map((x) => x.name)).toEqual(['bar', 'foo'])
+    })
 
-  it('can create multiple users', async () => {
-    const beforeUsers = await prisma.user.findMany({ orderBy: { name: 'asc' } })
-    expect(beforeUsers.map((x) => x.name)).toEqual(['foo'])
+    it('can delete a user', async () => {
+      const beforeUsers = await prisma.user.findMany({ orderBy: { name: 'asc' } })
+      expect(beforeUsers.map((x) => x.name)).toEqual(['foo'])
 
-    await prisma.user.create({ data: { name: 'zar' } })
-    await prisma.user.create({ data: { name: 'zog' } })
+      await prisma.user.deleteMany()
 
-    const afterUsers = await prisma.user.findMany({ orderBy: { name: 'asc' } })
-    expect(afterUsers.map((x) => x.name)).toEqual(['foo', 'zar', 'zog'])
-  })
+      const afterUsers = await prisma.user.findMany({ orderBy: { name: 'asc' } })
+      expect(afterUsers.map((x) => x.name)).toEqual([])
+    })
+
+    it('can create multiple users', async () => {
+      const beforeUsers = await prisma.user.findMany({ orderBy: { name: 'asc' } })
+      expect(beforeUsers.map((x) => x.name)).toEqual(['foo'])
+
+      await prisma.user.create({ data: { name: 'zar' } })
+      await prisma.user.create({ data: { name: 'zog' } })
+
+      const afterUsers = await prisma.user.findMany({ orderBy: { name: 'asc' } })
+      expect(afterUsers.map((x) => x.name)).toEqual(['foo', 'zar', 'zog'])
+    })
+  }
 })
