@@ -22,7 +22,7 @@
   "prettier": "@devoxa/prettier-config",
   "dependencies": {
     "fast-glob": "3.2.12",
-    "node-fetch": "2.6.10"
+    "node-fetch": "2.6.11"
   },
   "devDependencies": {
     "@devoxa/eslint-config": "3.0.10",
