@@ -78,7 +78,7 @@ exports[`api-client endpoints can initialize a template 1`] = `
 exports[`api-client endpoints can reuse a test database 1`] = `
 [
   [
-    "http:/localhost:5000/api/v1/templates/mock-hash/42",
+    "http:/localhost:5000/api/v1/templates/mock-hash/tests/42",
     {
       "body": undefined,
       "headers": {
