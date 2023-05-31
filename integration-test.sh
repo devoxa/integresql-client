@@ -13,7 +13,8 @@ if lsof -Pi :5000 -sTCP:LISTEN -t >/dev/null ; then echo "\n/!\ Something is alr
 
 echo ""
 echo "-> Starting PostgreSQL..."
-docker run --rm -d --name "${PROJECT}_postgres" -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:15
+docker run --rm -d --name "${PROJECT}_postgres" -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:15 \
+  postgres -c 'fsync=off' -c 'synchronous_commit=off' -c 'full_page_writes=off'
 
 echo ""
 echo "-> Starting IntegreSQL..."
