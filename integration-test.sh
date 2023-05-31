@@ -18,7 +18,7 @@ docker run --rm -d --name "${PROJECT}_postgres" -e POSTGRES_PASSWORD=postgres -p
 
 echo ""
 echo "-> Starting IntegreSQL..."
-docker run --rm -d --name genesis_integresql -e INTEGRESQL_PGPASSWORD=postgres --network host allaboutapps/integresql
+docker run --rm -d --name "${PROJECT}_integresql" -e INTEGRESQL_PGPASSWORD=postgres --network host allaboutapps/integresql
 
 echo ""
 echo "-> Generating Prisma client..."
