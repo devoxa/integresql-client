@@ -12,7 +12,7 @@ let prisma: PrismaClient
 const originalConsoleWarn = console.warn
 console.warn = (...args) => {
   const prismaWarning =
-    'warn(prisma-client) There are already 10 instances of Prisma Client actively running.'
+    'warn(prisma-client) This is the 10th instance of Prisma Client being started. Make sure this is intentional.'
 
   if (args[0] === prismaWarning) return
   return originalConsoleWarn(...args)
