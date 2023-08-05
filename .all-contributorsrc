@@ -11,15 +11,9 @@
       "name": "David Reeß",
       "avatar_url": "https://avatars3.githubusercontent.com/u/4615516?v=4",
       "profile": "https://www.david-reess.de",
-      "contributions": [
-        "code",
-        "doc",
-        "test"
-      ]
+      "contributions": ["code", "doc", "test"]
     }
   ],
-  "files": [
-    "README.md"
-  ],
+  "files": ["README.md"],
   "contributorsPerLine": 7
 }
