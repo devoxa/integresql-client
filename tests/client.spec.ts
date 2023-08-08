@@ -32,12 +32,12 @@ describe('client', () => {
     }
   })
 
-  it('instantiates the API client', () => {
+  test('instantiates the API client', () => {
     expect(client.api).toBeInstanceOf(IntegreSQLApiClient)
     expect(typeof client.api.initializeTemplate).toEqual('function')
   })
 
-  it('can initialize a template', async () => {
+  test('can initialize a template', async () => {
     const mockSetupCallback = jest.fn().mockImplementation(async () => 'noop')
 
     MockIntegreSQLApiClient.initializeTemplate.mockImplementation(async () => ({
@@ -64,7 +64,7 @@ describe('client', () => {
     expect(MockIntegreSQLApiClient.getTestDatabase.mock.calls).toEqual([['mock-hash']])
   })
 
-  it('can skip initializing a template when another process is already doing it', async () => {
+  test('can skip initializing a template when another process is already doing it', async () => {
     const mockSetupCallback = jest.fn()
 
     MockIntegreSQLApiClient.initializeTemplate.mockImplementation(async () => {
@@ -82,7 +82,7 @@ describe('client', () => {
     expect(MockIntegreSQLApiClient.getTestDatabase.mock.calls).toEqual([])
   })
 
-  it('can rethrow error when initializing a template', async () => {
+  test('can rethrow error when initializing a template', async () => {
     const mockSetupCallback = jest.fn()
 
     MockIntegreSQLApiClient.initializeTemplate.mockImplementation(async () => {
@@ -102,7 +102,7 @@ describe('client', () => {
     expect(MockIntegreSQLApiClient.getTestDatabase.mock.calls).toEqual([])
   })
 
-  it('can discard a template when the setup callback fails', async () => {
+  test('can discard a template when the setup callback fails', async () => {
     const mockSetupCallback = jest.fn().mockImplementation(async () => {
       throw new Error('Some migration error')
     })
@@ -125,7 +125,7 @@ describe('client', () => {
     expect(MockIntegreSQLApiClient.getTestDatabase.mock.calls).toEqual([])
   })
 
-  it('can get a test database', async () => {
+  test('can get a test database', async () => {
     MockIntegreSQLApiClient.getTestDatabase.mockImplementation(async () => ({
       id: 2,
       database: {
@@ -140,13 +140,13 @@ describe('client', () => {
     expect(databaseConfig).toMatchSnapshot()
   })
 
-  it('can call the hash files helper', async () => {
+  test('can call the hash files helper', async () => {
     await client.hashFiles(['./prisma/schema.prisma', './src/__fixtures__/**/*'])
 
     expect(mockSha1HashFiles.mock.calls).toMatchSnapshot()
   })
 
-  it('can convert the database config into a connection url', () => {
+  test('can convert the database config into a connection url', () => {
     expect(client.databaseConfigToConnectionUrl(mockDatabaseConfig)).toMatchSnapshot()
   })
 })

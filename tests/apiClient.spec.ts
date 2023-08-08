@@ -35,7 +35,7 @@ describe('apiClient', () => {
     mockFetch.mockReset()
   })
 
-  it('sets the correct base URL', () => {
+  test('sets the correct base URL', () => {
     const withTrailingSlash = new IntegreSQLApiClient({ url: 'http://localhost:5000/' })
     const withoutTrailingSlash = new IntegreSQLApiClient({ url: 'http://localhost:5000' })
 
@@ -43,7 +43,7 @@ describe('apiClient', () => {
     expect(withoutTrailingSlash.baseUrl).toEqual('http://localhost:5000/api/v1')
   })
 
-  it('errors when the HTTP response status indicates an issue', async () => {
+  test('errors when the HTTP response status indicates an issue', async () => {
     const mockResponse = { message: 'template is already initialized' }
     mockFetch.mockImplementation(getMockFetchImplementation(423, JSON.stringify(mockResponse)))
 
@@ -61,7 +61,7 @@ describe('apiClient', () => {
   })
 
   describe('endpoints', () => {
-    it('can initialize a template', async () => {
+    test('can initialize a template', async () => {
       const mockResponse: InitializeTemplateResponse = {
         database: { templateHash: 'mock-hash', config: mockDatabaseConfig },
       }
@@ -73,7 +73,7 @@ describe('apiClient', () => {
       expect(mockFetch.mock.calls).toMatchSnapshot()
     })
 
-    it('can finalize a template', async () => {
+    test('can finalize a template', async () => {
       mockFetch.mockImplementation(getMockFetchImplementation(200, ''))
 
       const response = await client.finalizeTemplate('mock-hash')
@@ -82,7 +82,7 @@ describe('apiClient', () => {
       expect(mockFetch.mock.calls).toMatchSnapshot()
     })
 
-    it('can discard a template', async () => {
+    test('can discard a template', async () => {
       mockFetch.mockImplementation(getMockFetchImplementation(200, ''))
 
       const response = await client.discardTemplate('mock-hash')
@@ -91,7 +91,7 @@ describe('apiClient', () => {
       expect(mockFetch.mock.calls).toMatchSnapshot()
     })
 
-    it('can discard all templates', async () => {
+    test('can discard all templates', async () => {
       mockFetch.mockImplementation(getMockFetchImplementation(200, ''))
 
       const response = await client.discardAllTemplates()
@@ -100,7 +100,7 @@ describe('apiClient', () => {
       expect(mockFetch.mock.calls).toMatchSnapshot()
     })
 
-    it('can get a test database', async () => {
+    test('can get a test database', async () => {
       const mockResponse: GetTestDatabaseResponse = {
         id: 1,
         database: { templateHash: 'mock-hash', config: mockDatabaseConfig },
@@ -113,7 +113,7 @@ describe('apiClient', () => {
       expect(mockFetch.mock.calls).toMatchSnapshot()
     })
 
-    it('can reuse a test database', async () => {
+    test('can reuse a test database', async () => {
       mockFetch.mockImplementation(getMockFetchImplementation(200, ''))
 
       const response = await client.reuseTestDatabase('mock-hash', 42)

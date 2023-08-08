@@ -57,7 +57,7 @@ describe('user', () => {
 
   // Duplicate tests to check for connection exhaustion
   for (let i = 0; i !== 5; i++) {
-    it('can create a user', async () => {
+    test('can create a user', async () => {
       const beforeUsers = await prisma.user.findMany({ orderBy: { name: 'asc' } })
       expect(beforeUsers.map((x) => x.name)).toEqual(['foo'])
 
@@ -67,7 +67,7 @@ describe('user', () => {
       expect(afterUsers.map((x) => x.name)).toEqual(['bar', 'foo'])
     })
 
-    it('can delete a user', async () => {
+    test('can delete a user', async () => {
       const beforeUsers = await prisma.user.findMany({ orderBy: { name: 'asc' } })
       expect(beforeUsers.map((x) => x.name)).toEqual(['foo'])
 
@@ -77,7 +77,7 @@ describe('user', () => {
       expect(afterUsers.map((x) => x.name)).toEqual([])
     })
 
-    it('can create multiple users', async () => {
+    test('can create multiple users', async () => {
       const beforeUsers = await prisma.user.findMany({ orderBy: { name: 'asc' } })
       expect(beforeUsers.map((x) => x.name)).toEqual(['foo'])
 

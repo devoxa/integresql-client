@@ -4,7 +4,7 @@ import * as index from '../src/index'
 const expectTypeExport = <T>() => 'noop'
 
 describe('index', () => {
-  it('has the correct exports', () => {
+  test('has the correct exports', () => {
     expect(typeof index.IntegreSQLClient).toEqual('function')
     expectTypeExport<index.IntegreSQLClientOptions>()
 
