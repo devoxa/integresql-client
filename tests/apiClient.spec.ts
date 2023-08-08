@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
-import { IntegreSQLApiClient } from '../src/api-client'
-import { IntegreSQLApiClientError } from '../src/api-client-error'
+import { IntegreSQLApiClient } from '../src/apiClient'
+import { IntegreSQLApiClientError } from '../src/apiClientError'
 import {
   GetTestDatabaseResponse,
   InitializeTemplateResponse,
@@ -30,7 +30,7 @@ const mockDatabaseConfig: IntegreSQLDatabaseConfig = {
   database: 'mock_database_0',
 }
 
-describe('api-client', () => {
+describe('apiClient', () => {
   beforeEach(() => {
     mockFetch.mockReset()
   })

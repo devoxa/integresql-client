@@ -1,10 +1,10 @@
-import { IntegreSQLApiClient } from '../src/api-client'
-import { createIntegreSQLApiClientError } from '../src/api-client-error'
+import { IntegreSQLApiClient } from '../src/apiClient'
+import { createIntegreSQLApiClientError } from '../src/apiClientError'
 import { IntegreSQLClient } from '../src/client'
 import { sha1HashFiles } from '../src/hash'
 import { IntegreSQLDatabaseConfig } from '../src/interfaces'
 
-jest.mock('../src/api-client')
+jest.mock('../src/apiClient')
 const mockIntegreSQLApiClient = jest.mocked(IntegreSQLApiClient)
 const MockIntegreSQLApiClient = mockIntegreSQLApiClient.prototype
 

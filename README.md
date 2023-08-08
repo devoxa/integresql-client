@@ -101,7 +101,7 @@ const databaseConfig = await integreSQL.getTestDatabase(hash)
 ### API requests
 
 You can directly send requests to the IntegreSQL instance via the included API client, or optionally
-instantiate a new [`IntegreSQLApiClient`](./src/api-client.ts) yourself.
+instantiate a new [`IntegreSQLApiClient`](./src/apiClient.ts) yourself.
 
 ```ts
 await integreSQL.api.reuseTestDatabase(hash, id)
