@@ -28,7 +28,7 @@ echo ""
 echo "-> Duplicating integration tests..."
 for i in $(seq 1 10);
 do
-  cp tests-integration/user.spec.ts tests-integration/user-$i.spec.ts
+  cp tests-integration/user.spec.ts tests-integration/user$i.spec.ts
 done
 
 echo ""

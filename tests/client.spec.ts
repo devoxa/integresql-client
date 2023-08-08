@@ -1,5 +1,5 @@
-import { IntegreSQLApiClient } from '../src/api-client'
-import { createIntegreSQLApiClientError } from '../src/api-client-error'
+import { IntegreSQLApiClient } from '../src/apiClient'
+import { createIntegreSQLApiClientError } from '../src/apiClientError'
 import { IntegreSQLClient } from '../src/client'
 import { sha1HashFiles } from '../src/hash'
 import { IntegreSQLDatabaseConfig } from '../src/interfaces'

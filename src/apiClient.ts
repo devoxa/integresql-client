@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 import path from 'path'
-import { createIntegreSQLApiClientError } from './api-client-error'
+import { createIntegreSQLApiClientError } from './apiClientError'
 import { GetTestDatabaseResponse, InitializeTemplateResponse } from './interfaces'
 
 export interface IntegreSQLApiClientOptions {

@@ -1,5 +1,5 @@
-import { IntegreSQLApiClient } from './api-client'
-import { IntegreSQLApiClientError } from './api-client-error'
+import { IntegreSQLApiClient } from './apiClient'
+import { IntegreSQLApiClientError } from './apiClientError'
 import { sha1HashFiles } from './hash'
 import { IntegreSQLDatabaseConfig } from './interfaces'
 
