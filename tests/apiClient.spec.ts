@@ -30,7 +30,7 @@ const mockDatabaseConfig: IntegreSQLDatabaseConfig = {
   database: 'mock_database_0',
 }
 
-describe('api-client', () => {
+describe('apiClient', () => {
   beforeEach(() => {
     mockFetch.mockReset()
   })
