@@ -20,7 +20,6 @@ export function sha1HashFile(filePath: string): Promise<string> {
     const hash = crypto.createHash('sha1')
     const readStream = fs.createReadStream(filePath)
 
-    // istanbul ignore next
     readStream.on('error', (err) => reject(err))
 
     readStream.on('data', (chunk) => hash.update(chunk))
