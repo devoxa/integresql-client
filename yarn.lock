@@ -958,10 +958,10 @@
   resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-5.3.1-2.61e140623197a131c2a6189271ffee05a7aa9a59.tgz#7eb6f5c6b7628b8b39df55c903f411528a6f761c"
   integrity sha512-y5qbUi3ql2Xg7XraqcXEdMHh0MocBfnBzDn5GbV1xk23S3Mq8MGs+VjacTNiBh3dtEdUERCrUUG7Z3QaJ+h79w==
 
-"@prisma/engines@5.3.1":
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-5.3.1.tgz#53cc72a5ed176dc27d22305fe5569c64cc78b381"
-  integrity sha512-6QkILNyfeeN67BNEPEtkgh3Xo2tm6D7V+UhrkBbRHqKw9CTaz/vvTP/ROwYSP/3JT2MtIutZm/EnhxUiuOPVDA==
+"@prisma/engines@5.4.0":
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-5.4.0.tgz#9725f703a2b64a5f3a0a7070e558cf5fabcf5f49"
+  integrity sha512-tnPa5Z1D70iPahvy9xG0bH5GD6Pb25Q+rH76+N1JKwQFe6vA3LyKyVzQrG4CQCI6N5PCJHJxlahJeCgcTJfLsg==
 
 "@sinclair/typebox@^0.24.1":
   version "0.24.19"
@@ -3631,12 +3631,12 @@ pretty-format@^29.7.0:
     ansi-styles "^5.0.0"
     react-is "^18.0.0"
 
-prisma@5.3.1:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/prisma/-/prisma-5.3.1.tgz#a0932c1c1a5ed4ff449d064b193d9c7e94e8bf77"
-  integrity sha512-Wp2msQIlMPHe+5k5Od6xnsI/WNG7UJGgFUJgqv/ygc7kOECZapcSz/iU4NIEzISs3H1W9sFLjAPbg/gOqqtB7A==
+prisma@5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/prisma/-/prisma-5.4.0.tgz#2f0decabed43d91c93247a199c10733ca2215e0a"
+  integrity sha512-69rlao0RJ4JcLnJ6VwUS89qhRAdMawby7u10OOkpxZC9RZkDdLIpMj+7zafH2NqEk9roplbmfiAR5FseR7H8fg==
   dependencies:
-    "@prisma/engines" "5.3.1"
+    "@prisma/engines" "5.4.0"
 
 prompts@^2.0.1:
   version "2.4.0"
