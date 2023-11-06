@@ -21,7 +21,7 @@
   },
   "prettier": "@devoxa/prettier-config",
   "dependencies": {
-    "fast-glob": "3.3.1",
+    "fast-glob": "3.3.2",
     "node-fetch": "2.7.0"
   },
   "devDependencies": {
