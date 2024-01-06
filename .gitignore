@@ -3,7 +3,7 @@ dist/
 
 # Tests
 coverage/
-tests-integration/user-*.spec.ts
+tests-integration/user*.spec.ts
 integration-test.log
 
 # Dependencies

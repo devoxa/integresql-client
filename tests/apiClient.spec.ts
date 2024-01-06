@@ -1,4 +1,3 @@
-import fetch from 'node-fetch'
 import { IntegreSQLApiClient } from '../src/apiClient'
 import { IntegreSQLApiClientError } from '../src/apiClientError'
 import {
@@ -7,8 +6,8 @@ import {
   IntegreSQLDatabaseConfig,
 } from '../src/interfaces'
 
-jest.mock('node-fetch')
-const mockFetch = jest.mocked(fetch)
+const mockFetch = jest.fn()
+global.fetch = mockFetch
 
 function getMockFetchImplementation(status: number, response: string) {
   const mockFetchImplementation = async () => ({
