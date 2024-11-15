@@ -61,6 +61,6 @@ export class IntegreSQLApiClient {
   }
 
   async recreateTestDatabase(hash: string, id: number) {
-    return this.request<null>('DELETE', `/templates/${hash}/tests/${id}/recreate`)
+    return this.request<null>('POST', `/templates/${hash}/tests/${id}/recreate`)
   }
 }
