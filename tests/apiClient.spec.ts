@@ -120,5 +120,14 @@ describe('apiClient', () => {
       expect(response).toEqual(null)
       expect(mockFetch.mock.calls).toMatchSnapshot()
     })
+
+    test('can recreate a test database', async () => {
+      mockFetch.mockImplementation(getMockFetchImplementation(200, ''))
+
+      const response = await client.recreateTestDatabase('mock-hash', 42)
+
+      expect(response).toEqual(null)
+      expect(mockFetch.mock.calls).toMatchSnapshot()
+    })
   })
 })
