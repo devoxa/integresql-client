@@ -118,12 +118,15 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
-  <tr>
-    <td align="center"><a href="https://www.david-reess.de"><img src="https://avatars3.githubusercontent.com/u/4615516?v=4" width="75px;" alt=""/><br /><sub><b>David Reeß</b></sub></a><br /><a href="https://github.com/devoxa/integresql-client/commits?author=queicherius" title="Code">💻</a> <a href="https://github.com/devoxa/integresql-client/commits?author=queicherius" title="Documentation">📖</a> <a href="https://github.com/devoxa/integresql-client/commits?author=queicherius" title="Tests">⚠️</a></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.david-reess.de"><img src="https://avatars3.githubusercontent.com/u/4615516?v=4?s=75" width="75px;" alt="David Reeß"/><br /><sub><b>David Reeß</b></sub></a><br /><a href="https://github.com/devoxa/integresql-client/commits?author=queicherius" title="Code">💻</a> <a href="https://github.com/devoxa/integresql-client/commits?author=queicherius" title="Documentation">📖</a> <a href="https://github.com/devoxa/integresql-client/commits?author=queicherius" title="Tests">⚠️</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/saratscheff"><img src="https://avatars.githubusercontent.com/u/4401263?v=4?s=75" width="75px;" alt="Pedro Saratscheff"/><br /><sub><b>Pedro Saratscheff</b></sub></a><br /><a href="https://github.com/devoxa/integresql-client/commits?author=saratscheff" title="Code">💻</a> <a href="https://github.com/devoxa/integresql-client/commits?author=saratscheff" title="Tests">⚠️</a></td>
+    </tr>
+  </tbody>
 </table>
 
-<!-- markdownlint-enable -->
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
