@@ -1,7 +1,7 @@
 {
   "name": "@devoxa/integresql-client",
   "description": "IntegreSQL client for managing isolated PostgreSQL databases in integration tests",
-  "version": "2.0.0",
+  "version": "2.1.1",
   "main": "dist/src/index.js",
   "license": "MIT",
   "repository": {
@@ -26,16 +26,16 @@
   "devDependencies": {
     "@devoxa/eslint-config": "3.0.11",
     "@devoxa/prettier-config": "2.0.3",
-    "@prisma/client": "5.22.0",
-    "@swc/core": "1.9.2",
+    "@prisma/client": "6.0.0",
+    "@swc/core": "1.9.3",
     "@swc/jest": "0.2.37",
     "@types/jest": "29.5.14",
     "@types/node": "20.9.5",
     "eslint": "8.57.1",
     "jest": "29.7.0",
-    "prettier": "3.3.3",
-    "prisma": "5.22.0",
-    "typescript": "5.6.3"
+    "prettier": "3.4.1",
+    "prisma": "6.0.0",
+    "typescript": "5.7.2"
   },
   "publishConfig": {
     "access": "public"

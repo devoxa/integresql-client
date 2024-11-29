@@ -12,8 +12,16 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/4615516?v=4",
       "profile": "https://www.david-reess.de",
       "contributions": ["code", "doc", "test"]
+    },
+    {
+      "login": "saratscheff",
+      "name": "Pedro Saratscheff",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4401263?v=4",
+      "profile": "https://github.com/saratscheff",
+      "contributions": ["code", "test"]
     }
   ],
   "files": ["README.md"],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "commitConvention": "angular"
 }
