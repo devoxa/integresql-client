@@ -1,7 +1,7 @@
 import * as index from '../src/index'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const expectTypeExport = <T>() => 'noop'
+const expectTypeExport = <T>(): string => 'noop'
 
 describe('index', () => {
   test('has the correct exports', () => {

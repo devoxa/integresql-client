@@ -33,34 +33,34 @@ export class IntegreSQLApiClient {
       throw createIntegreSQLApiClientError({ responseStatus: response.status, responseText: text })
     }
 
-    return text ? JSON.parse(text) : null
+    return text ? (JSON.parse(text) as T) : (null as T)
   }
 
-  async initializeTemplate(hash: string) {
+  async initializeTemplate(hash: string): Promise<InitializeTemplateResponse> {
     return this.request<InitializeTemplateResponse>('POST', '/templates', { hash })
   }
 
-  async finalizeTemplate(hash: string) {
+  async finalizeTemplate(hash: string): Promise<null> {
     return this.request<null>('PUT', `/templates/${hash}`)
   }
 
-  async discardTemplate(hash: string) {
+  async discardTemplate(hash: string): Promise<null> {
     return this.request<null>('DELETE', `/templates/${hash}`)
   }
 
-  async discardAllTemplates() {
-    return this.request<null>('DELETE', `/admin/templates`)
+  async discardAllTemplates(): Promise<null> {
+    return this.request<null>('DELETE', '/admin/templates')
   }
 
-  async getTestDatabase(hash: string) {
+  async getTestDatabase(hash: string): Promise<GetTestDatabaseResponse> {
     return this.request<GetTestDatabaseResponse>('GET', `/templates/${hash}/tests`)
   }
 
-  async reuseTestDatabase(hash: string, id: number) {
+  async reuseTestDatabase(hash: string, id: number): Promise<null> {
     return this.request<null>('DELETE', `/templates/${hash}/tests/${id}`)
   }
 
-  async recreateTestDatabase(hash: string, id: number) {
+  async recreateTestDatabase(hash: string, id: number): Promise<null> {
     return this.request<null>('POST', `/templates/${hash}/tests/${id}/recreate`)
   }
 }
