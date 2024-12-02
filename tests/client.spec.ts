@@ -38,22 +38,26 @@ describe('client', () => {
   })
 
   test('can initialize a template', async () => {
-    const mockSetupCallback = jest.fn().mockImplementation(async () => 'noop')
+    const mockSetupCallback = jest.fn().mockImplementation(() => Promise.resolve('noop'))
 
-    MockIntegreSQLApiClient.initializeTemplate.mockImplementation(async () => ({
-      database: {
-        templateHash: 'mock-hash',
-        config: { ...mockDatabaseConfig, database: 'mock_template_1' },
-      },
-    }))
+    MockIntegreSQLApiClient.initializeTemplate.mockImplementation(() =>
+      Promise.resolve({
+        database: {
+          templateHash: 'mock-hash',
+          config: { ...mockDatabaseConfig, database: 'mock_template_1' },
+        },
+      })
+    )
 
-    MockIntegreSQLApiClient.getTestDatabase.mockImplementation(async () => ({
-      id: 1,
-      database: {
-        templateHash: 'mock-hash',
-        config: { ...mockDatabaseConfig, database: 'mock_database_1' },
-      },
-    }))
+    MockIntegreSQLApiClient.getTestDatabase.mockImplementation(() =>
+      Promise.resolve({
+        id: 1,
+        database: {
+          templateHash: 'mock-hash',
+          config: { ...mockDatabaseConfig, database: 'mock_database_1' },
+        },
+      })
+    )
 
     await client.initializeTemplate('mock-hash', mockSetupCallback)
 
@@ -67,10 +71,10 @@ describe('client', () => {
   test('can skip initializing a template when another process is already doing it', async () => {
     const mockSetupCallback = jest.fn()
 
-    MockIntegreSQLApiClient.initializeTemplate.mockImplementation(async () => {
+    MockIntegreSQLApiClient.initializeTemplate.mockImplementation(() => {
       const responseStatus = 423
       const responseText = JSON.stringify({ message: 'template is already initialized' })
-      throw createIntegreSQLApiClientError({ responseStatus, responseText })
+      return Promise.reject(createIntegreSQLApiClientError({ responseStatus, responseText }))
     })
 
     await client.initializeTemplate('mock-hash', mockSetupCallback)
@@ -85,10 +89,10 @@ describe('client', () => {
   test('can rethrow error when initializing a template', async () => {
     const mockSetupCallback = jest.fn()
 
-    MockIntegreSQLApiClient.initializeTemplate.mockImplementation(async () => {
+    MockIntegreSQLApiClient.initializeTemplate.mockImplementation(() => {
       const responseStatus = 500
       const responseText = JSON.stringify({ message: 'connect: connection refused' })
-      throw createIntegreSQLApiClientError({ responseStatus, responseText })
+      return Promise.reject(createIntegreSQLApiClientError({ responseStatus, responseText }))
     })
 
     await expect(
@@ -103,18 +107,20 @@ describe('client', () => {
   })
 
   test('can discard a template when the setup callback fails', async () => {
-    const mockSetupCallback = jest.fn().mockImplementation(async () => {
-      throw new Error('Some migration error')
+    const mockSetupCallback = jest.fn().mockImplementation(() => {
+      return Promise.reject(new Error('Some migration error'))
     })
 
-    MockIntegreSQLApiClient.initializeTemplate.mockImplementation(async () => ({
-      database: {
-        templateHash: 'mock-hash',
-        config: { ...mockDatabaseConfig, database: 'mock_template_1' },
-      },
-    }))
+    MockIntegreSQLApiClient.initializeTemplate.mockImplementation(() =>
+      Promise.resolve({
+        database: {
+          templateHash: 'mock-hash',
+          config: { ...mockDatabaseConfig, database: 'mock_template_1' },
+        },
+      })
+    )
 
-    await expect(client.initializeTemplate('mock-hash', mockSetupCallback)).rejects.toThrowError(
+    await expect(client.initializeTemplate('mock-hash', mockSetupCallback)).rejects.toThrow(
       'Some migration error'
     )
 
@@ -126,13 +132,15 @@ describe('client', () => {
   })
 
   test('can get a test database', async () => {
-    MockIntegreSQLApiClient.getTestDatabase.mockImplementation(async () => ({
-      id: 2,
-      database: {
-        templateHash: 'mock-hash',
-        config: { ...mockDatabaseConfig, database: 'mock_database_2' },
-      },
-    }))
+    MockIntegreSQLApiClient.getTestDatabase.mockImplementation(() =>
+      Promise.resolve({
+        id: 2,
+        database: {
+          templateHash: 'mock-hash',
+          config: { ...mockDatabaseConfig, database: 'mock_database_2' },
+        },
+      })
+    )
 
     const databaseConfig = await client.getTestDatabase('mock-hash')
 

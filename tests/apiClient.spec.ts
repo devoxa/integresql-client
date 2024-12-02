@@ -9,14 +9,14 @@ import {
 const mockFetch = jest.fn()
 global.fetch = mockFetch
 
-function getMockFetchImplementation(status: number, response: string) {
-  const mockFetchImplementation = async () => ({
-    status: status,
-    text: async () => response,
-  })
+function getMockFetchImplementation(status: number, response: string): typeof fetch {
+  const mockFetchImplementation = (): Promise<{ status: number; text: () => Promise<string> }> =>
+    Promise.resolve({
+      status: status,
+      text: () => Promise.resolve(response),
+    })
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return mockFetchImplementation as any
+  return mockFetchImplementation as unknown as typeof fetch
 }
 
 const client = new IntegreSQLApiClient({ url: 'http://localhost:5000' })
