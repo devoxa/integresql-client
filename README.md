@@ -5,7 +5,7 @@
 
 <!-- Description -->
 <h4 align="center">
-  <a href="https://github.com/allaboutapps/integresql">IntegreSQL</a> client for managing isolated PostgreSQL databases in integration tests.
+  <a href="https://github.com/allaboutapps/integresql">IntegreSQL</a> client for managing isolated PostgreSQL databases in integration tests
 </h4>
 
 <!-- Badges -->
