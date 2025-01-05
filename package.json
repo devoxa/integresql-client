@@ -18,7 +18,7 @@
   },
   "prettier": "@devoxa/prettier-config",
   "dependencies": {
-    "fast-glob": "3.3.2"
+    "fast-glob": "3.3.3"
   },
   "devDependencies": {
     "@devoxa/eslint-config": "4.0.2",
