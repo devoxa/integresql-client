@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'path/posix'
 import { createIntegreSQLApiClientError } from './apiClientError'
 import { GetTestDatabaseResponse, InitializeTemplateResponse } from './interfaces'
 
