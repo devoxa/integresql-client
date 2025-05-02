@@ -3,7 +3,7 @@
 exports[`apiClient endpoints can discard a template 1`] = `
 [
   [
-    "http:/localhost:5000/api/v1/templates/mock-hash",
+    "http://localhost:5000/api/v1/templates/mock-hash",
     {
       "body": undefined,
       "headers": {
@@ -18,7 +18,7 @@ exports[`apiClient endpoints can discard a template 1`] = `
 exports[`apiClient endpoints can discard all templates 1`] = `
 [
   [
-    "http:/localhost:5000/api/v1/admin/templates",
+    "http://localhost:5000/api/v1/admin/templates",
     {
       "body": undefined,
       "headers": {
@@ -33,7 +33,7 @@ exports[`apiClient endpoints can discard all templates 1`] = `
 exports[`apiClient endpoints can finalize a template 1`] = `
 [
   [
-    "http:/localhost:5000/api/v1/templates/mock-hash",
+    "http://localhost:5000/api/v1/templates/mock-hash",
     {
       "body": undefined,
       "headers": {
@@ -48,7 +48,7 @@ exports[`apiClient endpoints can finalize a template 1`] = `
 exports[`apiClient endpoints can get a test database 1`] = `
 [
   [
-    "http:/localhost:5000/api/v1/templates/mock-hash/tests",
+    "http://localhost:5000/api/v1/templates/mock-hash/tests",
     {
       "body": undefined,
       "headers": {
@@ -63,7 +63,7 @@ exports[`apiClient endpoints can get a test database 1`] = `
 exports[`apiClient endpoints can initialize a template 1`] = `
 [
   [
-    "http:/localhost:5000/api/v1/templates",
+    "http://localhost:5000/api/v1/templates",
     {
       "body": "{"hash":"mock-hash"}",
       "headers": {
@@ -78,7 +78,7 @@ exports[`apiClient endpoints can initialize a template 1`] = `
 exports[`apiClient endpoints can recreate a test database 1`] = `
 [
   [
-    "http:/localhost:5000/api/v1/templates/mock-hash/tests/42/recreate",
+    "http://localhost:5000/api/v1/templates/mock-hash/tests/42/recreate",
     {
       "body": undefined,
       "headers": {
@@ -93,7 +93,7 @@ exports[`apiClient endpoints can recreate a test database 1`] = `
 exports[`apiClient endpoints can reuse a test database 1`] = `
 [
   [
-    "http:/localhost:5000/api/v1/templates/mock-hash/tests/42",
+    "http://localhost:5000/api/v1/templates/mock-hash/tests/42",
     {
       "body": undefined,
       "headers": {

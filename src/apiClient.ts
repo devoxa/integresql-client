@@ -1,4 +1,3 @@
-import path from 'path'
 import { createIntegreSQLApiClientError } from './apiClientError'
 import { GetTestDatabaseResponse, InitializeTemplateResponse } from './interfaces'
 
@@ -19,7 +18,7 @@ export class IntegreSQLApiClient {
     endpoint: string,
     body?: Record<string, unknown>
   ): Promise<T> {
-    const url = path.join(this.baseUrl, endpoint)
+    const url = this.baseUrl + endpoint
 
     const response = await fetch(url, {
       method,
